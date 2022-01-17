@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/ibrilo/barcode/app"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -20,7 +21,7 @@ var rootCmd = &cobra.Command{
 	Short: "",
 	Long:  ``,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		app := NewApplication(viper.GetViper())
+		return app.NewApplication(viper.GetViper()).Run()
 	},
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
