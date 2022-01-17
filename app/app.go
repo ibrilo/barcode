@@ -8,13 +8,19 @@ import (
 	"github.com/spf13/viper"
 )
 
-type application struct {
+type Application struct {
 	conf   *viper.Viper
 	server *http.Server
 	router *mux.Router
 }
 
-func (app *application) run() error {
+func NewApplication(conf *viper.Viper) *Application {
+	return &Application{
+		conf: conf,
+	}
+}
+
+func (app *Application) Run() error {
 	app.router = mux.NewRouter()
 	app.server = &http.Server{
 		Addr: fmt.Sprintf("%s:%d",

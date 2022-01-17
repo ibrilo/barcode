@@ -20,7 +20,7 @@ var rootCmd = &cobra.Command{
 	Short: "",
 	Long:  ``,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return nil
+		app := NewApplication(viper.GetViper())
 	},
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
