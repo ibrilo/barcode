@@ -1,0 +1,22 @@
+{{ define "ozon_barcode" }}
+<!doctype html>
+<html>
+    <head>
+        <style>
+        
+        @page {
+            size: 58mm 40mm;
+        }
+
+        </style>
+    </head>
+    <body>
+        <div>
+            <div>
+                <img src="/code128/{{.Code}}">
+                <h4>{{.Code}}</h4>
+            </div>
+        </div>
+    </body>
+</html>
+{{ end }}
