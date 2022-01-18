@@ -15,8 +15,9 @@ type Application interface {
 	Log() *log.Logger
 }
 
-func Index(app *Application) http.HandlerFunc {
+func Index(app Application) http.HandlerFunc {
+	app.Log().Println("-- Handler Index loaded")
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("hello world"))
+
 	})
 }

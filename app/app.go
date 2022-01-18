@@ -39,6 +39,8 @@ func (app *Application) Run() error {
 		Handler: app.router,
 	}
 
+	app.addHandler("/ozon/{code:[a-zA-Z0-9]+}", handler.Ozon(app))
+	app.addHandler("/code128/{code:[a-zA-Z0-9]+}", handler.Code128(app))
 	app.addHandler("/", handler.Index(app))
 
 	app.log.Printf("Приложение доступно по адресу: http://%s", addr)
